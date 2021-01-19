@@ -2,18 +2,17 @@ import './App.css';
 
 function App() {
     const data = new Date()
+    const time = data.getTime()
     return (
         <div className="App">
-            <form
-                method="POST"
-                action="https://test.api.securepay.com.au/directpost/authorise">
+            <form method="POST" action="https://test.api.securepay.com.au/directpost/authorise">
 
                 {/* Hidden fields: */}
                 <input type="hidden" name="EPS_MERCHANT" value="ABC0010"/>
                 <input type="hidden" name="EPS_TXNTYPE" value="0"/>
                
                 <input type="hidden" name="EPS_AMOUNT" value="1.00"/>
-                <input type="hidden" name="EPS_TIMESTAMP" value={data}/>
+                <input type="hidden" name="EPS_TIMESTAMP" value={time}/>
                 <input type="hidden" name="EPS_FINGERPRINT"  value="01a1edbb159aa01b99740508d79620251c2f871d"/>
                 <input type="hidden" name="EPS_RESULTURL" value="https://www.resulturl.com"/>
                 <input type="hidden" name="EPS_REFERENCEID" value="Invoice#642193"/>
